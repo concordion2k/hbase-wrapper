@@ -41,7 +41,7 @@ export class HBaseService {
       const colfam = base64.decode(cell.column);
       const decodedKey = colfam.split(':')[1];
       const decodedVal = base64.decode(cell.$);
-      respJSON[decodedKey] = JSON.parse(decodedVal);
+      respJSON[decodedKey] = decodedVal;
     }
     const apiResponse = this.constructResponse(respJSON);
     return apiResponse;
