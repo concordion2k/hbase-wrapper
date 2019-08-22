@@ -1,17 +1,17 @@
-# PDP NPM Module
+# HBase NPM Module
 
-A very simple wrapper around the PDP Hbase REST interface.
+A very simple wrapper around the HBase REST interface.
 
 ## Installation
 
 ```bash
-> npm install et-pdp-npm
+> npm install hbase-wrapper
 ```
 
 ## Usage
 
 ```javascript
-const { HBaseService } = require('et-pdp-npm');
+const { HBaseService } = require('hbase-wrapper');
 
 let props = {
     baseUrl: "base_url",
@@ -39,5 +39,4 @@ scanForItems will return a list of Rows that match the primary key prefix suppli
 
 ## Future additions
 
-- Add basic scan capability
 - Add batch processes
