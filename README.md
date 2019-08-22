@@ -26,25 +26,30 @@ let props = {
 }
 let client = new HBaseService(props);
 
-let dataObj = {
-    key1: "value1",
-    key2: "value2"
+async function runAction() {
+
+    let dataObj = {
+        key1: "value1",
+        key2: "value2"
+    }
+
+    await client.putItem('somePriamryKey', 'column1', dataObj);
+    // HBase Cells:
+    // column1:key1 = value1
+    // column1:key2 = value2
+
+    let row = await client.getItem('somePriamryKey');
+    // {
+    //     status: "success",
+    //     msg: null,
+    //     data: {
+    //         key1: "value1",
+    //         key2: "value2"
+    //     }
+    // }
 }
 
-await client.putItem('somePriamryKey', 'column1', dataObj);
-// HBase Cells:
-// column1:key1 = value1
-// column1:key2 = value2
-
-let row = await client.getItem('somePriamryKey');
-// {
-//     status: "success",
-//     msg: null,
-//     data: {
-//         key1: "value1",
-//         key2: "value2"
-//     }
-// }
+runAction();
 
 ```
 
@@ -79,3 +84,4 @@ Each function will return an object of the format:
 ## Future additions
 
 - Add batch processes
+- Handle multiple column families
