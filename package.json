@@ -2,20 +2,39 @@
   "name": "et-pdp-npm",
   "version": "1.0.0",
   "description": "A module that makes requests to PDP on the user's behalf.",
-  "main": "index.ts",
+  "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "test": "jest --config jestconfig.json"
   },
   "author": "Daniel Douston <daniel.douston@disney.com>",
   "license": "ISC",
   "dependencies": {
+    "@types/base-64": "^0.1.3",
     "@types/node": "^12.7.2",
     "@types/request": "^2.48.2",
     "@types/request-promise-native": "^1.0.16",
     "aws-sdk": "^2.512.0",
+    "base-64": "^0.1.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "winston": "^3.2.1"
+  },
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.19.0",
+    "tslint-config-prettier": "^1.18.0"
   }
 }
