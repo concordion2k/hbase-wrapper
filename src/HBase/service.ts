@@ -24,7 +24,6 @@ export class HBaseService {
   }
 
   public async getItem(key: string) {
-    logger('info', 'called getItem function');
     const hbaseRes = await request
       .get({
         headers: this.headers,
@@ -34,7 +33,6 @@ export class HBaseService {
       .promise();
 
     const parsedHbase: IHBaseRow = JSON.parse(hbaseRes);
-    logger('info', `Response: ${JSON.stringify(parsedHbase, null, 2)}`);
 
     const respJSON: any = {};
     for (const cell of parsedHbase.Row[0].Cell) {
@@ -48,7 +46,6 @@ export class HBaseService {
   }
 
   public async putItem(col: string, key: string, val: string) {
-    logger('info', 'called putItemWithMultiColumns function');
     const parsedVal = JSON.parse(val);
     const hBaseRequest: IHBaseRow = {
       Row: [
@@ -67,8 +64,6 @@ export class HBaseService {
         hBaseRequest.Row[0].Cell.push(cell);
       }
     }
-    logger('info', `Stringified body: ${JSON.stringify(hBaseRequest)}`);
-    logger('info', `Constructed PUT url: ${this.baseUrl}/${this.table}/${base64.encode(key)}`);
 
     // Call Hbase PUT
     await request
