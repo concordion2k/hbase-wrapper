@@ -37,6 +37,18 @@ This allows for querying using a tool like Apache PhoenixDB.
 
 scanForItems will return a list of Rows that match the primary key prefix supplied. It will transform the Cell schema into one JSON object.
 
+### Response Format
+
+Each function will return an object of the format:
+
+```json
+{
+  "status": "string",
+  "msg": "string | null",
+  "data": "any"
+}
+```
+
 ## Future additions
 
 - Add batch processes
