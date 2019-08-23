@@ -1,6 +1,6 @@
 {
   "name": "hbase-wrapper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A module that makes simple requests to HBase.",
   "main": "./lib/index.js",
   "scripts": {
