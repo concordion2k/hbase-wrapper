@@ -1,10 +1,10 @@
-# HBase NPM Module
+# hbase-wrapper
 
 A very simple wrapper around the HBase REST interface.
 
 ## What makes this package different
 
-This package allows you to supply a JSON object of any shape, and will break out the top level properties into their own cells, given a columnm family value. The GET operators iterate over the columns to construct a JSON object.
+This package allows you to supply a JSON object of any shape, and will break out the top level properties into their own cells, given a column family value. The GET operators iterate over the columns to construct a JSON object.
 
 More work needs to be done to support multiple column families.
 
@@ -50,7 +50,6 @@ async function runAction() {
 }
 
 runAction();
-
 ```
 
 ### `client.getItem('key')`

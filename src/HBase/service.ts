@@ -45,7 +45,7 @@ export class HBaseService {
     return apiResponse;
   }
 
-  public async putItem(col: string, key: string, val: string) {
+  public async putItem(key: string, col: string, val: string) {
     const parsedVal = JSON.parse(val);
     const hBaseRequest: IHBaseRow = {
       Row: [
