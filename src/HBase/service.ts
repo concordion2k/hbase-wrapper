@@ -79,13 +79,13 @@ export class HBaseService {
     return apiResponse;
   }
 
-  public async scanForItems(prefix: string) {
+  public async scanForItems(prefix: string, col: string) {
     const hbaseRes: IHBaseRow = JSON.parse(
       await request
         .get({
           headers: this.headers,
           rejectUnauthorized: false,
-          url: `${this.baseUrl}/${this.table}/${prefix}*`,
+          url: `${this.baseUrl}/${this.table}/${prefix}*/${col}`,
         })
         .promise(),
     );

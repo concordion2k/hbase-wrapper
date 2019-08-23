@@ -64,7 +64,7 @@ The JSON object will be broken out by property into corresponding cells within t
 
 This allows for querying using a tool like Apache Phoenix.
 
-### `client.scanForItems('prefix')`
+### `client.scanForItems('prefix', 'col')`
 
 scanForItems will return a list of Rows that match the primary key prefix supplied. It will transform column cells into one JSON object.
 
